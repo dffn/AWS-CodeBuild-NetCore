@@ -11,21 +11,18 @@ hooks:
       timeout: 300
       runas: root
 
-  BeforeInstall:
-    - location: scripts/remove_application
-      timeout: 300
-      runas: root
+
 
   AfterInstall:
-    - location: scripts/install_dotnetcore
+    - location: scripts/installapache.sh
       timeout: 500
       runas: root
 
-    - location: scripts/install_httpd
+    - location: scripts/restartapache.sh
       timeout: 300
       runas: root
 
   ApplicationStart:
-    - location: scripts/start_service
+    - location: scripts/startapache.sh
       timeout: 300
       runas: root
